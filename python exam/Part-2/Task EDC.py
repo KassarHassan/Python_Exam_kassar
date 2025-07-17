@@ -1,10 +1,10 @@
-import pandas as pd                  # I'm importing pandas so I can work with tables (DataFrame)
-import matplotlib.pyplot as plt      # I need matplotlib to make charts and visualize data
+import pandas as pd                  
+import matplotlib.pyplot as plt      
 
-# 1. Load the data from my CSV file into a pandas DataFrame
-df = pd.read_csv(r"C:\Users\HassanKassar\Downloads\KASSAR Hassan - bank_loans.csv")  # reading the file I downloaded
+# 1.
+df = pd.read_csv(r"C:\Users\HassanKassar\Downloads\KASSAR Hassan - bank_loans.csv") 
 
-# 2. Peek at the data to understand what I'm working with
+# 2. 
 print("First 5 rows:")               # letting me see a sample of the top rows
 print(df.head())                     # show first five rows so I know the column names and some values
 print("\nData Info:")                # label for the info section
@@ -15,7 +15,7 @@ df.columns = (
     df.columns
       .str.strip()                   # remove unwanted spaces around names
       .str.lower()                   # convert everything to lowercase so it's consistent
-      .str.replace(' ', '_')         # replace spaces with underscores for valid Python names
+      .str.replace(' ', '_')         
 )
 
 # 4. Remove columns with too many missing values so they won't mess up my analysis
@@ -33,9 +33,9 @@ print(df.describe())                 # gives me count, mean, std, min, max, quar
 plt.figure()                         # start a new figure to keep things separate
 df['loan_amount'].hist(bins=20)      # histogram with 20 bins to show frequency spread
 plt.title('Distribution of Loan Amount')  # gives context to what I'm plotting
-plt.xlabel('Loan Amount')            # x-axis label so reader knows units
-plt.ylabel('Frequency')              # y-axis label for counts
-plt.show()                           # display the plot on screen
+plt.xlabel('Loan Amount')            
+plt.ylabel('Frequency')              
+plt.show()                           
 
 # Chart 2: Count of loans for each grade to see which grades are most common
 plt.figure()
@@ -49,14 +49,14 @@ plt.show()
 plt.figure()
 df.boxplot(column='loan_amount', by='grade')  # boxplot gives median, quartiles, and outliers info
 plt.title('Loan Amount by Grade')
-plt.suptitle('')                     # remove default subtitle since pandas adds one by default
+plt.suptitle('')                     
 plt.xlabel('Grade')
 plt.ylabel('Loan Amount')
 plt.show()
 
 # Chart 4: Scatter plot to check if larger loans have different interest rates
 plt.figure()
-plt.scatter(df['loan_amount'], df['interest_rate'])  # x-axis is loan_amount, y-axis is interest_rate
+plt.scatter(df['loan_amount'], df['interest_rate'])  
 plt.title('Interest Rate vs Loan Amount')
 plt.xlabel('Loan Amount')
 plt.ylabel('Interest Rate (%)')
