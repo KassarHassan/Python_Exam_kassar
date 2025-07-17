@@ -1,27 +1,26 @@
-# --- Task 3: Define count_vowels(text) ---
-def count_vowels(text):               # function takes a string
-    text_lower = text.lower()         # convert text to lowercase for uniformity
+# Task 3
+def count_vowels(text):               
+    text_lower = text.lower()         
     vowels = ['a', 'e', 'i', 'o', 'u'] # list of vowels to count
-    total = 0                         # initialize total vowel counter
-    counts = {}                       # dict to hold counts per vowel
-    for v in vowels:                  # initialize each vowel count to zero
+    total = 0                         
+    counts = {}                      
+    for v in vowels:                  
         counts[v] = 0
 
-    for ch in text_lower:             # iterate over each character in text
-        if ch in vowels:              # check if character is a vowel
-            counts[ch] += 1           # increment count for that vowel
-            total += 1                # increment total counter
+    for ch in text_lower:            
+        if ch in vowels:             
+            counts[ch] += 1           
+            total += 1                
 
     # print results
     print(f"Total vowels: {total}")   # total number of vowels
-    for v in vowels:                  # for each vowel
-        print(f"{v}: {counts[v]}")    # how many times it appeared
+    for v in vowels:                  
+        print(f"{v}: {counts[v]}")  
 
-# String from prompt
 prompt_text = (
     "Today is my final exam of Python, "
     "It is an amazing laugange that i will keep on learning."
 )
-count_vowels(prompt_text)             # call vowel counter
+count_vowels(prompt_text)           
 
 print()
